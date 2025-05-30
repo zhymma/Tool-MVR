@@ -1,0 +1,10 @@
+api_key: "ak-58d7efgh23i4jkl67mno89pqrs01tuv6k5"
+api_base: "http://39.98.55.198:8888/chat_completion"
+model: gpt-4o
+temperature: 0.7
+toolbench_url: http://8.130.32.149:8080/rapidapi
+rapidapi_key: 
+tools_folder: "./tools"
+cache_folder: "./tool_response_cache"
+is_save: true
+port: 8081

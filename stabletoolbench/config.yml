@@ -1,0 +1,5 @@
+api_key:  "ak-58d7efgh23i4jkl67mno89pqrs01tuv6k5"
+api_base: "http://39.98.55.198:8888/chat_completion"
+toolbench_key: D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8
+tool_root_dir: server/tools 
+

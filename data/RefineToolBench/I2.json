@@ -1,0 +1,258 @@
+[
+    {
+        "query": "Retrieve detailed information for a specific song, including language settings, country, quality of the song preview, and whether the service should use HTTPS only, based on a song ID.",
+        "action": {
+            "thought": "To get song details, including preview quality and security features, I should call the song details API with proper parameters.",
+            "python_code": "\nprint(xmusic_song_info_for_xmusic(lang=\"en\", country=\"US\", songid=\"123456\", song_preview_kbps=\"320\", https_only=\"true\"))\n",
+            "json_function_calling": {
+                "api_name": "xmusic_song_info_for_xmusic",
+                "parameters": {
+                    "lang": "en",
+                    "country": "US",
+                    "songid": "123456",
+                    "song_preview_kbps": "320",
+                    "https_only": "true"
+                }
+            },
+            "observation": "{'error': '', 'response': \"{'from': 'kelvin', 'to': 'fahrenheit', 'from_symbol': 'K', 'to_symbol': 'F', 'input': 100, 'result': -279.6700000000001, 'roundedResult': -279.67}\"}"
+        },
+        "answer": {
+            "api_name": "xmusic_song_info_for_xmusic",
+            "parameters": {
+                "lang": "en",
+                "country": "US",
+                "songid": "123456",
+                "song_preview_kbps": "320",
+                "https_only": "1",
+                "s": "fe7cc2de3cfcc4efd457838a9521e7e9"
+            }
+        },
+        "api_name": "xmusic_song_info_for_xmusic",
+        "api_doc": {
+            "type": "function",
+            "function": {
+                "name": "xmusic_song_info_for_xmusic",
+                "description": "This is the subfunction for tool \"xmusic\", you can use this tool.The description of this function is: \"Test apis xmusic_song_info_for_xmusic\"",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "lang": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "id"
+                        },
+                        "country": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "id"
+                        },
+                        "songid": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "aGhSCbhJJZoEaT5dC8jYNg=="
+                        },
+                        "song_preview_kbps": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "320"
+                        },
+                        "https_only": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "1"
+                        },
+                        "s": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "fe7cc2de3cfcc4efd457838a9521e7e9"
+                        },
+                        "wmid": {
+                            "type": "string",
+                            "description": "",
+                            "example_value": "161445361"
+                        }
+                    },
+                    "required": [
+                        "",
+                        "lang",
+                        "country",
+                        "songid",
+                        "song_preview_kbps",
+                        "https_only",
+                        "s"
+                    ],
+                    "optional": [
+                        "",
+                        "wmid"
+                    ]
+                }
+            }
+        },
+        "code_string": "import requests\nimport json\ndef xmusic_song_info_for_xmusic(**kwargs):\n    payload = {\n        \"category\": \"Music\",\n        \"tool_name\": \"xmusic\", \n        \"api_name\": \"xmusic_song_info\",\n        \"tool_input\": json.dumps(kwargs),\n        \"strip\": \"truncate\",\n        \"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"\n    }\n    headers = {\"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"}\n    timeout = None if \"http://localhost:8081/virtual\".endswith(\"virtual\") else 60\n    try:\n        response = requests.post(\n            \"http://localhost:8081/virtual\",\n            json=payload, \n            headers=headers,\n            timeout=timeout\n        )\n        if response.status_code != 200:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n        try:\n            response = str(response.json())\n            if len(response) > 1024:\n                response = response[:1024] + \"...\"\n            return response\n        except:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n    except requests.exceptions.Timeout:\n        return {\"error\": \"Timeout error...\", \"response\": \"\"}\n    except Exception as e:\n        return {\"error\": f\"Request error: {str(e)}\", \"response\": \"\"}",
+        "data_path": "data/RefineToolbench/APICallingSaves/xmusic_song_info_for_xmusic.json"
+    },
+    {
+        "query": "Generate an audit for clinical markers related to drinking behavior. Provide analysis on how frequently a person drinks, experiences memory loss due to drinking, and cannot act properly due to drinking.",
+        "action": {
+            "thought": "To audit the clinical markers, we need to analyze various parameters related to drinking behavior. Let's call the `audit_for_clinicalmarkers` function with the required parameters.",
+            "python_code": "\naudit_for_clinicalmarkers(frequencyofmemorylossduetodrinking=\"Often\", frequencyofinabilitytoactproperly=\"Sometimes\", undefined_parameter=\"Unknown\")\n",
+            "json_function_calling": {
+                "api_name": "audit_for_clinicalmarkers",
+                "parameters": {
+                    "frequencyofmemorylossduetodrinking": "Often",
+                    "frequencyofinabilitytoactproperly": "Sometimes",
+                    "undefined_parameter": "Unknown"
+                }
+            },
+            "observation": "{'error': '', 'response': \"{'from': 'kelvin', 'to': 'fahrenheit', 'from_symbol': 'K', 'to_symbol': 'F', 'input': 100, 'result': -279.6700000000001, 'roundedResult': -279.67}\"}"
+        },
+        "answer": {
+            "api_name": "audit_for_clinicalmarkers",
+            "parameters": {
+                "frequencyofmemorylossduetodrinking": "Often",
+                "frequencyofinabilitytoactproperly": "Sometimes",
+                "frequencyofinabilitytostopdrinking": "Rarely",
+                "frequencyofremorsefordrinking": "Never",
+                "numberofdrinksperdrinkingday": 3,
+                "drinkinjury": "No",
+                "sixdrinksfrenquency": "Never",
+                "frequencyofmorningdrinking": "Never",
+                "cutdownsuggestions": "No",
+                "drinkfrequency": "Weekly"
+            }
+        },
+        "api_name": "audit_for_clinicalmarkers",
+        "api_doc": {
+            "type": "function",
+            "function": {
+                "name": "audit_for_clinicalmarkers",
+                "description": "This is the subfunction for tool \"clinicalmarkers\", you can use this tool.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "frequencyofmemorylossduetodrinking": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "frequencyofinabilitytoactproperly": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "frequencyofinabilitytostopdrinking": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "frequencyofremorsefordrinking": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "numberofdrinksperdrinkingday": {
+                            "type": "integer",
+                            "description": ""
+                        },
+                        "drinkinjury": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "sixdrinksfrenquency": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "frequencyofmorningdrinking": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "cutdownsuggestions": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "drinkfrequency": {
+                            "type": "string",
+                            "description": ""
+                        }
+                    },
+                    "required": [
+                        "",
+                        "frequencyofmemorylossduetodrinking",
+                        "frequencyofinabilitytoactproperly",
+                        "frequencyofinabilitytostopdrinking",
+                        "frequencyofremorsefordrinking",
+                        "numberofdrinksperdrinkingday",
+                        "drinkinjury",
+                        "sixdrinksfrenquency",
+                        "frequencyofmorningdrinking",
+                        "cutdownsuggestions",
+                        "drinkfrequency"
+                    ],
+                    "optional": [
+                        ""
+                    ]
+                }
+            }
+        },
+        "code_string": "import requests\nimport json\ndef audit_for_clinicalmarkers(**kwargs):\n    payload = {\n        \"category\": \"Health_and_Fitness\",\n        \"tool_name\": \"clinicalmarkers\", \n        \"api_name\": \"audit\",\n        \"tool_input\": json.dumps(kwargs),\n        \"strip\": \"truncate\",\n        \"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"\n    }\n    headers = {\"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"}\n    timeout = None if \"http://localhost:8081/virtual\".endswith(\"virtual\") else 60\n    try:\n        response = requests.post(\n            \"http://localhost:8081/virtual\",\n            json=payload, \n            headers=headers,\n            timeout=timeout\n        )\n        if response.status_code != 200:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n        try:\n            response = str(response.json())\n            if len(response) > 1024:\n                response = response[:1024] + \"...\"\n            return response\n        except:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n    except requests.exceptions.Timeout:\n        return {\"error\": \"Timeout error...\", \"response\": \"\"}\n    except Exception as e:\n        return {\"error\": f\"Request error: {str(e)}\", \"response\": \"\"}",
+        "data_path": "data/RefineToolbench/APICallingSaves/audit_for_clinicalmarkers.json"
+    },
+    {
+        "query": "Get a list of next matches for a cricket league using the tournament ID 16802, season ID 33450, and page number 2.",
+        "action": {
+            "thought": "Call the cricketapi2's leaguenextmatches_for_cricketapi2 function with the parameters: tournamentid, seasonid, and page.",
+            "python_code": "\nleaguenextmatches_for_cricketapi2(seasonid=\"33450\", page=\"2\", tournamentid=\"16802\")\n",
+            "json_function_calling": {
+                "api_name": "leaguenextmatches_for_cricketapi2",
+                "parameters": {
+                    "seasonid": "33450",
+                    "page": "2",
+                    "tournamentid": "16802"
+                }
+            },
+            "observation": "{'error': '', 'response': \"{'from': 'kelvin', 'to': 'fahrenheit', 'from_symbol': 'K', 'to_symbol': 'F', 'input': 100, 'result': -279.6700000000001, 'roundedResult': -279.67}\"}"
+        },
+        "answer": {
+            "api_name": "leaguenextmatches_for_cricketapi2",
+            "parameters": {
+                "seasonid": 33450,
+                "page": 2,
+                "tournamentid": 16802
+            }
+        },
+        "api_name": "leaguenextmatches_for_cricketapi2",
+        "api_doc": {
+            "type": "function",
+            "function": {
+                "name": "leaguenextmatches_for_cricketapi2",
+                "description": "This is the subfunction for tool \"cricketapi2\", you can use this tool.The description of this function is: \"Get a list of next matches for a cricket league using the tournament ID, season ID, and page number.\"",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "seasonid": {
+                            "type": "integer",
+                            "description": "The season ID for which you want to retrieve the league's next matches.",
+                            "example_value": 44608
+                        },
+                        "page": {
+                            "type": "integer",
+                            "description": "Zero-based page number."
+                        },
+                        "tournamentid": {
+                            "type": "integer",
+                            "description": "The unique tournament ID for which you want to retrieve the league's next matches.",
+                            "example_value": 19048
+                        }
+                    },
+                    "required": [
+                        "",
+                        "seasonid",
+                        "page",
+                        "tournamentid"
+                    ],
+                    "optional": [
+                        ""
+                    ]
+                }
+            }
+        },
+        "code_string": "import requests\nimport json\ndef leaguenextmatches_for_cricketapi2(**kwargs):\n    payload = {\n        \"category\": \"Sports\",\n        \"tool_name\": \"cricketapi2\", \n        \"api_name\": \"leaguenextmatches\",\n        \"tool_input\": json.dumps(kwargs),\n        \"strip\": \"truncate\",\n        \"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"\n    }\n    headers = {\"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"}\n    timeout = None if \"http://localhost:8081/virtual\".endswith(\"virtual\") else 60\n    try:\n        response = requests.post(\n            \"http://localhost:8081/virtual\",\n            json=payload, \n            headers=headers,\n            timeout=timeout\n        )\n        if response.status_code != 200:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n        try:\n            response = str(response.json())\n            if len(response) > 1024:\n                response = response[:1024] + \"...\"\n            return response\n        except:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n    except requests.exceptions.Timeout:\n        return {\"error\": \"Timeout error...\", \"response\": \"\"}\n    except Exception as e:\n        return {\"error\": f\"Request error: {str(e)}\", \"response\": \"\"}",
+        "data_path": "data/RefineToolbench/APICallingSaves/leaguenextmatches_for_cricketapi2.json"
+    }
+]

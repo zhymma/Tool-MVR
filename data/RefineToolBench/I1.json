@@ -1,0 +1,186 @@
+[
+    {
+        "query": "Fetch 10 latest premium anime wallpapers optimized for mobile devices with the highest digital art quality.",
+        "action": {
+            "thought": "I need to fetch the latest premium anime wallpapers. To do so, I'll use the API optimized for mobile devices and request the highest quality by setting the sensitivity parameter to its maximum value, which supports enhancing the art style.",
+            "python_code": "\nprint(premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations(page=0, sensitivity=5))\n",
+            "json_function_calling": {
+                "api_name": "premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations",
+                "parameters": {
+                    "page": 0,
+                    "sensitivity": 5
+                }
+            },
+            "observation": "{'error': '', 'response': \"{'from': 'kelvin', 'to': 'fahrenheit', 'from_symbol': 'K', 'to_symbol': 'F', 'input': 100, 'result': -279.6700000000001, 'roundedResult': -279.67}\"}"
+        },
+        "answer": {
+            "api_name": "premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations",
+            "parameters": {
+                "page": "0",
+                "sensitivity": "1"
+            }
+        },
+        "api_name": "premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations",
+        "api_doc": {
+            "type": "function",
+            "function": {
+                "name": "premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations",
+                "description": "This is the subfunction for tool \"premium_anime_mobile_wallpapers_illustrations\", you can use this tool.The description of this function is: \"Premium anime arts are wallpapers that look best of the best on a mobile device or contain high-quality digital art:\nRequired GET parameter\n**page**:  0\n**sensitivity**: 1\nOn the above **page**, 0 means it will fetch the latest 10 wallpaper if the page val\"",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sensitivity": {
+                            "type": "integer",
+                            "description": "",
+                            "example_value": "0"
+                        },
+                        "page": {
+                            "type": "integer",
+                            "description": "",
+                            "example_value": "0"
+                        },
+                        "quality": {
+                            "type": "integer",
+                            "description": "",
+                            "example_value": "1"
+                        }
+                    },
+                    "required": [
+                        "",
+                        "sensitivity",
+                        "page"
+                    ],
+                    "optional": [
+                        "",
+                        "quality"
+                    ]
+                }
+            }
+        },
+        "code_string": "import requests\nimport json\ndef premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations(**kwargs):\n    payload = {\n        \"category\": \"Video_Images\",\n        \"tool_name\": \"premium_anime_mobile_wallpapers_illustrations\", \n        \"api_name\": \"premium_anime_wallpapers_by_pagination\",\n        \"tool_input\": json.dumps(kwargs),\n        \"strip\": \"truncate\",\n        \"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"\n    }\n    headers = {\"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"}\n    timeout = None if \"http://localhost:8081/virtual\".endswith(\"virtual\") else 60\n    try:\n        response = requests.post(\n            \"http://localhost:8081/virtual\",\n            json=payload, \n            headers=headers,\n            timeout=timeout\n        )\n        if response.status_code != 200:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n        try:\n            response = str(response.json())\n            if len(response) > 1024:\n                response = response[:1024] + \"...\"\n            return response\n        except:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n    except requests.exceptions.Timeout:\n        return {\"error\": \"Timeout error...\", \"response\": \"\"}\n    except Exception as e:\n        return {\"error\": f\"Request error: {str(e)}\", \"response\": \"\"}",
+        "data_path": "data/RefineToolbench/APICallingSaves/premium_anime_wallpapers_by_pagination_for_premium_anime_mobile_wallpapers_illustrations.json"
+    },
+    {
+        "query": "Given the recent international sports events, retrieve the latest news related to association football in New York timezone for an English audience.",
+        "action": {
+            "thought": "For fetching the latest sports news regarding football in the New York timezone in English, parameters like the sport's ID, the language ID, and the timezone are provided. The provided IDs for the sport and language supposedly correspond to sports type and language specifications.",
+            "python_code": "\nprint(news_for_allscores(sport=\"football\", timezone=\"America/New_York\", langid=\"English\"))\n",
+            "json_function_calling": {
+                "api_name": "news_for_allscores",
+                "parameters": {
+                    "sport": "football",
+                    "timezone": "America/New_York",
+                    "langid": "English"
+                }
+            },
+            "observation": "{'error': '', 'response': \"{'from': 'kelvin', 'to': 'fahrenheit', 'from_symbol': 'K', 'to_symbol': 'F', 'input': 100, 'result': -279.6700000000001, 'roundedResult': -279.67}\"}"
+        },
+        "answer": {
+            "api_name": "news_for_allscores",
+            "parameters": {
+                "sport": 1,
+                "timezone": "America/New_York",
+                "langid": 1
+            }
+        },
+        "api_name": "news_for_allscores",
+        "api_doc": {
+            "type": "function",
+            "function": {
+                "name": "news_for_allscores",
+                "description": "This is the subfunction for tool \"allscores\", you can use this tool.The description of this function is: \"Get news.\"",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sport": {
+                            "type": "integer",
+                            "description": "The sport.",
+                            "example_value": 1
+                        },
+                        "timezone": {
+                            "type": "string",
+                            "description": "The timezone name. Check the tutorials.",
+                            "example_value": "America/Chicago"
+                        },
+                        "langid": {
+                            "type": "integer",
+                            "description": "The language id. Check the tutorials.",
+                            "example_value": 1
+                        }
+                    },
+                    "required": [
+                        "",
+                        "sport",
+                        "timezone",
+                        "langid"
+                    ],
+                    "optional": [
+                        ""
+                    ]
+                }
+            }
+        },
+        "code_string": "import requests\nimport json\ndef news_for_allscores(**kwargs):\n    payload = {\n        \"category\": \"Sports\",\n        \"tool_name\": \"allscores\", \n        \"api_name\": \"news\",\n        \"tool_input\": json.dumps(kwargs),\n        \"strip\": \"truncate\",\n        \"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"\n    }\n    headers = {\"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"}\n    timeout = None if \"http://localhost:8081/virtual\".endswith(\"virtual\") else 60\n    try:\n        response = requests.post(\n            \"http://localhost:8081/virtual\",\n            json=payload, \n            headers=headers,\n            timeout=timeout\n        )\n        if response.status_code != 200:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n        try:\n            response = str(response.json())\n            if len(response) > 1024:\n                response = response[:1024] + \"...\"\n            return response\n        except:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n    except requests.exceptions.Timeout:\n        return {\"error\": \"Timeout error...\", \"response\": \"\"}\n    except Exception as e:\n        return {\"error\": f\"Request error: {str(e)}\", \"response\": \"\"}",
+        "data_path": "data/RefineToolbench/APICallingSaves/news_for_allscores.json"
+    },
+    {
+        "query": "Convert a temperature of 100 degrees Kelvin to Fahrenheit.",
+        "action": {
+            "thought": "To convert the temperature of 100 degrees from Kelvin to Fahrenheit, I will use the `temperature_from_to_number_for_unitconversion` API. This requires fields: `to` for the target unit, `number` for the numeric temperature value to convert, and `is_from` for the source unit of the temperature. I'll make the API call accordingly.",
+            "python_code": "\nprint(temperature_from_to_number_for_unitconversion(to=\"fahrenheit\", number=\"100\", is_from=\"kelvin\"))\n",
+            "json_function_calling": {
+                "api_name": "temperature_from_to_number_for_unitconversion",
+                "parameters": {
+                    "to": "fahrenheit",
+                    "number": "100",
+                    "is_from": "kelvin"
+                }
+            },
+            "observation": "{'error': '', 'response': \"{'from': 'kelvin', 'to': 'fahrenheit', 'from_symbol': 'K', 'to_symbol': 'F', 'input': 100, 'result': -279.6700000000001, 'roundedResult': -279.67}\"}"
+        },
+        "answer": {
+            "api_name": "temperature_from_to_number_for_unitconversion",
+            "parameters": {
+                "to": "fahrenheit",
+                "number": 100,
+                "is_from": "kelvin"
+            }
+        },
+        "api_name": "temperature_from_to_number_for_unitconversion",
+        "api_doc": {
+            "type": "function",
+            "function": {
+                "name": "temperature_from_to_number_for_unitconversion",
+                "description": "Converts temperature from one unit to another. This function supports conversions between Fahrenheit, Celsius, and Kelvin. Provide the temperature to convert, the current temperature unit, and the desired target unit.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "to": {
+                            "type": "string",
+                            "description": "The target unit for conversion. Valid options: 'celsius', 'fahrenheit', 'kelvin'.",
+                            "example_value": "celsius"
+                        },
+                        "number": {
+                            "type": "integer",
+                            "description": "The temperature value to convert.",
+                            "example_value": 90
+                        },
+                        "is_from": {
+                            "type": "string",
+                            "description": "The original unit of the temperature to be converted. Valid options: 'celsius', 'fahrenheit', 'kelvin'.",
+                            "example_value": "fahrenheit"
+                        }
+                    },
+                    "required": [
+                        "to",
+                        "number",
+                        "is_from"
+                    ],
+                    "optional": []
+                }
+            }
+        },
+        "code_string": "import requests\nimport json\ndef temperature_from_to_number_for_unitconversion(**kwargs):\n    payload = {\n        \"category\": \"Tools\",\n        \"tool_name\": \"unitconversion\", \n        \"api_name\": \"temperature_from_to_number\",\n        \"tool_input\": json.dumps(kwargs),\n        \"strip\": \"truncate\",\n        \"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"\n    }\n    headers = {\"toolbench_key\": \"D3pxHh4hTLhVVH6HnD5Vg50MhL9PYqgv5rQTntGuBh9IQsoZS8\"}\n    timeout = None if \"http://localhost:8081/virtual\".endswith(\"virtual\") else 60\n    try:\n        response = requests.post(\n            \"http://localhost:8081/virtual\",\n            json=payload, \n            headers=headers,\n            timeout=timeout\n        )\n        if response.status_code != 200:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n        try:\n            response = str(response.json())\n            if len(response) > 1024:\n                response = response[:1024] + \"...\"\n            return response\n        except:\n            return {\"error\": f\"request invalid, data error. status_code={response.status_code} please try again!\", \"response\": \"\"}\n    except requests.exceptions.Timeout:\n        return {\"error\": \"Timeout error...\", \"response\": \"\"}\n    except Exception as e:\n        return {\"error\": f\"Request error: {str(e)}\", \"response\": \"\"}",
+        "data_path": "data/RefineToolbench/APICallingSaves/temperature_from_to_number_for_unitconversion.json"
+    }
+]
